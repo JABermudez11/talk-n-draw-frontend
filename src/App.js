@@ -1,26 +1,83 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Chat from './components/Chat';
+import API_ROOT from './constants/index'
+import Navbar from './components/Navbar';
+import Profile from './components/Profile'
+import Canvas from './components/Canvas'
+import FriendsList from './containers/FriendsList'
+import Messages from './containers/Messages'
+import Login from './components/Login'
+import Register from './components/Register'
+import index from './constants/index'
+
+class App extends Component {
+
+  state = { 
+    auth: { 
+      currentUser: {} 
+    } ,
+    error: false,
+    message: "",
+    fields: {
+      username: '',
+      password: ''
+    }
+  };
+
+  componentDidMount() {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      index.auth.getCurrentUser().then((user) => {
+        const currentUser = { currentUser: user };
+
+        this.setState({ auth: currentUser });
+      });
+    }
+  }  
+
+  handleLogout = () => {
+    localStorage.removeItem('token');
+    this.setState({ auth: { currentUser: {} } });
+  };
+
+  handleChange = (e) => {
+    const newFields = { ...this.state.fields, [e.target.name]: e.target.value };
+    this.setState({ fields: newFields });
+  };
+
+  
+
+  render() {
+    return (
+      <div className="App">
+        <Router>
+          <Navbar 
+            currentUser={this.state.auth.currentUser}
+            handleLogout={this.handleLogout}
+          />
+          <div>
+            <Switch>
+              <Route exact path="/profile" component={Profile} />
+              <Route exact path="/messages" component={Messages} />
+              <Route exact path="/friends" component={FriendsList} />
+              <Route exact path="/canvas" component={Canvas} />
+              <Route path="/login"  handleLogin={this.handleLogin} component={Login} />
+              <Route path="/register"  handleLogout={() => (this.handleLogout)} 
+                 component={Register} 
+                handleChange={this.handleChange} fields={this.state.fields}/>
+            </Switch>  
+          </div>
+
+				  <Route exact path="/">
+					  {/* <Chat id={1} /> */}
+				  </Route>
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;
