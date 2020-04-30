@@ -1,22 +1,17 @@
 import React, { Component } from 'react'
 
-import {API_ROOT, HEADERS} from '../constants/index'
+// import {API_ROOT, HEADERS} from '../constants/index'
+import FindFriendForm from '../components/FindFriendForm'
 
 export default class FriendsList extends Component {
     
-    componentDidMount() {
-        fetch(`${API_ROOT}/auth/1`, {
-            method: 'GET',
-            headers: HEADERS
-        })
-        .then(res => res.json())
-        .then(users => console.log(users))
-    }
+    
 
     render() {
         return (
             <div>
-                FRiends                 
+                <FindFriendForm />
+                <h1>Friends List</h1>                
             </div>
         )
     }

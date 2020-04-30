@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, withRouter, NavLink, Link } from 'react-router-dom';
+import { withRouter, NavLink, Link } from 'react-router-dom';
 
 
 class Navbar extends Component {
@@ -26,7 +26,7 @@ class Navbar extends Component {
                         }}
                         className="item"
                     >
-                        <div className="ui primary button">Log Out</div>
+                        <button className="ui primary button">Log Out</button>
                     </a>
                 ) : (
                 <Link to="/login" className="item">

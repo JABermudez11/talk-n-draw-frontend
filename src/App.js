@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Chat from './components/Chat';
-import API_ROOT from './constants/index'
 import Navbar from './components/Navbar';
 import Profile from './components/Profile'
 import Canvas from './components/Canvas'
@@ -47,8 +46,6 @@ class App extends Component {
     const newFields = { ...this.state.fields, [e.target.name]: e.target.value };
     this.setState({ fields: newFields });
   };
-
-  
 
   render() {
     return (

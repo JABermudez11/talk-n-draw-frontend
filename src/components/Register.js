@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-import signup from '../constants/index'
 import {API_ROOT} from '../constants/index'
 
 export default class Register extends Component {
