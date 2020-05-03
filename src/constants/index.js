@@ -11,13 +11,20 @@ export const HEADERS = {
 
 const login = (username, password) => {
   return fetch(`${API_ROOT}/auth`, {
-    method: 'GET',
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json'
     },
     body: JSON.stringify({ username, password })
   }).then(res => res.json());
+};
+
+export const handleLogin = (user) => {
+  const currentUser = { currentUser: user };
+  localStorage.setItem('token', user.token);
+
+  this.setState({ auth: currentUser });
 };
 
 const signup = (username, password) => {
@@ -36,6 +43,7 @@ const getCurrentUser = () => {
     headers: HEADERS
   }).then(res => res.json());
 };
+
 
 export default {
   auth: {

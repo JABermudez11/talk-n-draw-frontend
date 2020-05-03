@@ -1,51 +1,55 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 
 import {API_ROOT, HEADERS} from '../constants/index'
+import FriendCard from '../containers/FriendCard'
 
-export default class FindFriendForm extends Component {
-    
-    state = {
-        username: ""
+
+export default function FindFriendForm() {    
+
+    const [searched, setSearched] = useState("");
+
+    const handleChange = e => {
+        // const newState = {username: e.target.value}
+        localStorage.setItem("searched", e.target.value)
+        
     }
-
-    handleChange = e => {
-        const newState = {username: e.target.value}
-        this.setState({ username: newState})
-    }
     
-    handleSubmit = e => {
-        e.preventDefault()
-
-        console.log(this.state.username)
+    const handleSubmit = e => {
+        e.preventDefault()        
 
         fetch(`${API_ROOT}/users`,{
             method: "GET",
             headers: HEADERS
         })
         .then(res => res.json())
-        .then(users => this.filter(users))
+        .then(users => filter(users))
     }
 
-    filter = users => {
-        for (let i = 0; i < users.length; i++) {
-            if (users[i].username === this.state.username) {
-                return (users[i])
+    const filter = users => {          
+        users.map(user => {
+            if (user.username === localStorage.getItem("searched")){ 
+                setSearched(user)
             }
-        }
+        })
+        localStorage.removeItem("searched")
     }
 
     
 
     //value={this.state.username}
-    render() {
+    
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <input type="text"  
-                    placeholder="username" onChange={this.handleChange} />
+                    placeholder="username" onChange={handleChange} />
                     <button type="submit">Search for user</button>
-                </form>
+                </form>    
+
+                <div>
+                    { searched ? <FriendCard user={searched} /> : null } 
+                </div>
             </div>
         )
-    }
+    
 }

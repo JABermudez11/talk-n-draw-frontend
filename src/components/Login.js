@@ -18,6 +18,8 @@ export default class Login extends Component {
       handleLogin = (user) => {
         const currentUser = { currentUser: user };
         localStorage.setItem('token', user.token);
+        localStorage.setItem('user', user.user.username);
+        localStorage.setItem('userId', user.user.id);
     
         this.setState({ auth: currentUser });
       };
@@ -30,7 +32,7 @@ export default class Login extends Component {
       handleSubmit = (e) => {
         e.preventDefault();
     
-    index.auth.login(this.state.fields.username, this.state.fields.password)
+      index.auth.login(this.state.fields.username, this.state.fields.password)
         .then((res) => {
             if (res.error) {
                 this.setState({ error: true });

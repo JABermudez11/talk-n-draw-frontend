@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import {API_ROOT} from '../constants/index'
+import {API_ROOT, handleLogin} from '../constants/index'
 
 export default class Register extends Component {
 
@@ -47,16 +47,19 @@ export default class Register extends Component {
             } else {
               // console.log(res)
               this.handleLogin(res);
-              this.props.history.push('/');
+              this.props.history.push('/profile');
             }}
         )
     }
 
     handleLogin = (user) => {
+        // console.log(user.user)
         const currentUser = { currentUser: user };
         localStorage.setItem('token', user.token);
+        localStorage.setItem('user', user.user.username);
+        localStorage.setItem('userId', user.user.id);
     
-        this.setState({ auth: currentUser });
+        this.setState({ auth: currentUser });        
       };
 
     //() => signup(this.state.username, this.state.password)
@@ -85,7 +88,7 @@ export default class Register extends Component {
                         />
                     </div>
                     <button type="submit" className="ui basic purple button">
-                        Submit
+                        Register
                     </button>
                 </form>
             </div>

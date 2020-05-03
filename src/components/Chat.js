@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-// import consumer from '../services/consumer';
+
 import { API_ROOT, API_WS_ROOT } from '../constants/index';
 import actionCable from 'actioncable';
-
 import MessageForm from './MessageForm'
 
 export default function Chat({ id }) {

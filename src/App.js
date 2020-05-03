@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import Chat from './components/Chat';
 import Navbar from './components/Navbar';
 import Profile from './components/Profile'
 import Canvas from './components/Canvas'
@@ -57,7 +56,7 @@ class App extends Component {
           />
           <div>
             <Switch>
-              <Route exact path="/profile" component={Profile} />
+              <Route exact path="/profile" component={Profile} />              
               <Route exact path="/messages" component={Messages} />
               <Route exact path="/friends" component={FriendsList} />
               <Route exact path="/canvas" component={Canvas} />

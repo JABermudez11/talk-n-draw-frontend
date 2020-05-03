@@ -1,18 +1,36 @@
 import React, { Component } from 'react'
 
-// import {API_ROOT, HEADERS} from '../constants/index'
+import {API_ROOT, HEADERS} from '../constants/index'
 import FindFriendForm from '../components/FindFriendForm'
 
-export default class FriendsList extends Component {
+class FriendsList extends Component {
     
+    componentDidMount() {
+        fetch(`${API_ROOT}/friends`,{
+            method: "GET",
+            headers: HEADERS            
+        })
+        .then(res => res.json())
+        .then(users => this.renderUsers(users))
+    }
     
+    renderUsers = (users) => {
+        if(users.length != 0) {
+            users.map(user => {console.log(user)})
+        }
+    }
 
     render() {
         return (
             <div>
                 <FindFriendForm />
-                <h1>Friends List</h1>                
+                <h1>Friends List</h1>
+                <div>
+                    
+                </div>
             </div>
         )
     }
 }
+
+export default FriendsList
