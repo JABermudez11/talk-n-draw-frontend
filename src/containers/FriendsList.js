@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 
 import {API_ROOT, HEADERS} from '../constants/index'
 import FindFriendForm from '../components/FindFriendForm'
+import PendingList from './PendingList'
+import "../css/Friends.css"
 
 class FriendsList extends Component {
     
@@ -15,18 +17,21 @@ class FriendsList extends Component {
     }
     
     renderUsers = (users) => {
-        if(users.length != 0) {
-            users.map(user => {console.log(user)})
+        if(users.length !== 0) {
+            users.map(user => console.log(user))
         }
     }
 
     render() {
         return (
-            <div>
-                <FindFriendForm />
-                <h1>Friends List</h1>
-                <div>
-                    
+            <div className="header">
+                <div className="pending">
+                    <FindFriendForm />
+                    <PendingList />
+                </div>
+                
+                <div className="container">
+                    <h1>Friends List</h1>
                 </div>
             </div>
         )

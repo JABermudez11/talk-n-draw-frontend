@@ -1,0 +1,10 @@
+.registerForm {        
+    display: flex;
+    justify-content: center;
+    margin-top: 250px;    
+}
+
+.ever {
+    padding: 30px;
+    background-color: salmon;
+}

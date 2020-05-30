@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
-import {API_ROOT, handleLogin} from '../constants/index'
+import {API_ROOT} from '../constants/index'
+import '../css/Register.css'
 
 export default class Register extends Component {
 
@@ -66,9 +67,10 @@ export default class Register extends Component {
 
     render() {
         return (
-            <div>                
-                <form onSubmit={this.handleRegisterSubmit}>
-                    <div className="ui field">
+            <div className="registerForm">                                
+                <form onSubmit={this.handleRegisterSubmit} className="ever">
+                <h2>Talk-n-Draw</h2>
+                    <div className="name">
                         <label>Username</label>
                         <input
                         name="username"
@@ -77,7 +79,7 @@ export default class Register extends Component {
                         onChange={this.handleChange}
                         />
                     </div>
-                    <div className="ui field">
+                    <div className="pass">
                         <label>Password</label>
                         <input
                         name="password"

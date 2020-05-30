@@ -8,8 +8,7 @@ export default function FindFriendForm() {
 
     const [searched, setSearched] = useState("");
 
-    const handleChange = e => {
-        // const newState = {username: e.target.value}
+    const handleChange = e => {        
         localStorage.setItem("searched", e.target.value)
         
     }
@@ -32,18 +31,14 @@ export default function FindFriendForm() {
             }
         })
         localStorage.removeItem("searched")
-    }
-
-    
-
-    //value={this.state.username}
+    }            
     
         return (
             <div>
                 <form onSubmit={handleSubmit}>
                     <input type="text"  
                     placeholder="username" onChange={handleChange} />
-                    <button type="submit">Search for user</button>
+                    <button type="submit" class="fas fa-search"></button>
                 </form>    
 
                 <div>

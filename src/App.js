@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-import Navbar from './components/Navbar';
+import NavigationBar from './components/NavigationBar';
+import SideBar from './components/SideBar'
+
 import Profile from './components/Profile'
 import Canvas from './components/Canvas'
 import FriendsList from './containers/FriendsList'
@@ -50,10 +53,13 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <Navbar 
+          <NavigationBar 
             currentUser={this.state.auth.currentUser}
             handleLogout={this.handleLogout}
           />
+
+          <SideBar />
+
           <div>
             <Switch>
               <Route exact path="/profile" component={Profile} />              
@@ -65,11 +71,7 @@ class App extends Component {
                  component={Register} 
                 handleChange={this.handleChange} fields={this.state.fields}/>
             </Switch>  
-          </div>
-
-				  <Route exact path="/">
-					  {/* <Chat id={1} /> */}
-				  </Route>
+          </div>				  
         </Router>
       </div>
     );

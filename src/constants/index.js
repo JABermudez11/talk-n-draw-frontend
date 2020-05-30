@@ -27,16 +27,16 @@ export const handleLogin = (user) => {
   this.setState({ auth: currentUser });
 };
 
-const signup = (username, password) => {
-  return fetch(`${API_ROOT}/signup`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json'
-    },
-    body: JSON.stringify({ username, password })
-  }).then(res => res.json());
-};
+// const signup = (username, password) => {
+//   return fetch(`${API_ROOT}/signup`, {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       Accept: 'application/json'
+//     },
+//     body: JSON.stringify({ username, password })
+//   }).then(res => res.json());
+// };
 
 const getCurrentUser = () => {
   return fetch(`${API_ROOT}/current_user`, {

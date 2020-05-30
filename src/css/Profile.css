@@ -1,0 +1,15 @@
+.header {
+    font-size: 36px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.imageForm {
+    font-size: 10px;
+}
+
+.userInterface {
+    background: #49C59E;
+    width: 700px;
+    height: calc(100vh - 59px);
+}

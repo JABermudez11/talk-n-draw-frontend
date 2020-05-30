@@ -1,0 +1,24 @@
+.chatContainer {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    height: calc(100vh - 59px);
+}
+
+.chat {    
+    flex-grow: 1;
+}
+
+.messageForm {
+    font-size: 16px;    
+    margin-left: auto;
+}
+
+.msgFormTextArea {
+    display: block
+}
+
+.what:hover {
+    color: yellowgreen;
+    cursor: pointer;
+}

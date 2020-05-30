@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import { API_ROOT, HEADERS } from '../constants/index';
 
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 class MessageForm extends Component {
 
@@ -22,8 +22,8 @@ class MessageForm extends Component {
             headers: HEADERS,
             body: JSON.stringify({
                 content: this.state.value,
-                user_id: 1,
-                conversation_id: this.props.chatId
+                user_id: localStorage.getItem("userId"),
+                conversation_id: this.props.id
             })
         })
         
@@ -32,9 +32,10 @@ class MessageForm extends Component {
     
     render() {
         return (
-            <div>
-                <form className="messageForm" onSubmit={this.messageSubmit}>
-                    <textarea value={this.state.value} onChange={this.handleChange} />
+            <div className="messageForm">
+                <form  onSubmit={this.messageSubmit}>
+                    <textarea value={this.state.value} onChange={this.handleChange} 
+                    className="msgFormTextArea"/>
                     <input type="submit" value="submit" />
                 </form>
             </div>
