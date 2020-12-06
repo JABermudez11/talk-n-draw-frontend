@@ -5,7 +5,7 @@ Capstone project for Flatiron School 2020
 ## What the App is About
 Full stack web application that allows users to create an account, and message other users and draw their own emojis to send and share. This project was inspired by the Twitch community where streamers hired artists to make emotes to make their Twitch chats more lively. I wanted to bring these worlds together somehow by letting users message each other and draw emotes to send and save to have fun.
 
-## Technologies
+## Technologies Used in Front End
 <ul>
 <li>React</li>
 <li>Redux</li>
@@ -14,7 +14,13 @@ Full stack web application that allows users to create an account, and message o
 <li>JSON Web token</li>
 </ul>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Technologies Used in Back End
+[Link](https://github.com/JABermudez11/talk-n-draw-backend) to Back End GitHub
+<ul>
+<li>Ruby on Rails</li>
+<li>PostgreSQL</li>
+<li>Action Cable</li>
+</ul>
 
 ## Available Scripts
 
