@@ -45,18 +45,12 @@ export default class Chat extends Component {
 	})
 	.then(r => r.json())
 	.then(m => this.setState({ messages: m.messages}))
-	}
-	
-	// console.log(messages)
+	}	
 	
 	render() {
 		return (
 			<div className="chat">
-				<ul>                
-					{this.state.messages.map((message) => (
-						<p><b>{message.user.username}</b>: {message.content}</p>
-					))}
-				</ul>            
+				{console.log(this.state.messages)}           
 			</div>
 		);
 	}

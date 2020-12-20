@@ -17,9 +17,9 @@ class FriendsList extends Component {
     }
     
     renderUsers = (users) => {
-        if(users.length !== 0) {
-            users.map(user => console.log(user))
-        }
+        // if(users.length !== 0) {
+        //     users.map(user => console.log(user))
+        // }
     }
 
     render() {

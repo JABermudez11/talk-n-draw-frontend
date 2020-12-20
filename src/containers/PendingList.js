@@ -38,12 +38,12 @@ class PendingList extends Component {
 
     filterUsers = (pending) => {
         if(pending){
-            const newList = pending.filter(rq =>            
-                rq.friend_id === Number(localStorage.getItem("userId"))
-            )
-            this.setState({ 
-                pendingRequests: newList            
-            })   
+            // const newList = pending.filter(rq =>            
+            //     rq.friend_id === Number(localStorage.getItem("userId"))
+            // )
+            // this.setState({ 
+            //     pendingRequests: newList            
+            // })   
         }     
     }    
     

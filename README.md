@@ -5,6 +5,9 @@ Capstone project for Flatiron School 2020
 ## What the App is About
 Full stack web application that allows users to create an account, and message other users and draw their own emojis to send and share. This project was inspired by the Twitch community where streamers hired artists to make emotes to make their Twitch chats more lively. I wanted to bring these worlds together somehow by letting users message each other and draw emotes to send and save to have fun.
 
+## Video Demonstration
+[Link](https://vimeo.com/user115974363/review/491938288/8b6205f0a8)
+
 ## Technologies Used in Front End
 <ul>
 <li>React</li>
