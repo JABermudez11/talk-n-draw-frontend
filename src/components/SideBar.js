@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledSideNav } from '../css/Style';
+import { StyledSideNav, StyledNavItem } from '../css/Style';
 import { BrowserRouter as Router, Route, Link, withRouter } from "react-router-dom";
 
 
@@ -72,20 +72,6 @@ class SideNav extends React.Component {
 
 const RouterSideNav = withRouter(SideNav);
 
-const StyledNavItem = styled.div`
-    height: 70px;
-    width: 75px; /* width must be same size as NavBar to center */
-    text-align: center; /* Aligns <a> inside of NavIcon div */
-    margin-bottom: 0;   /* Puts space between NavItems */
-    a {
-        font-size: 2.7em;
-        color: ${(props) => props.active ? "white" : "#9FFFCB"};        
-        &:hover {
-            opacity: 0.7;
-            text-decoration: none; /* Gets rid of underlining of icons */
-        }  
-    }
-`;
 
 class NavItem extends React.Component {
     handleClick = () => {
@@ -106,9 +92,6 @@ class NavItem extends React.Component {
         );
     }
 }
-
-const NavIcon = styled.div`
-`;
 
 export default class Sidebar extends React.Component {
     render() {
